@@ -12,12 +12,25 @@ const Navbar = () => {
     return (
         <>
             <nav className='flex px-10 py-5 justify-between'>
-                <div className='text-slate-600 font-semibold tracking-wide border py-2 px-3 rounded-full'>
-                    <Link href="/">
-                      I want to be a Software engineer
-                    </Link>
+                <div className='flex items-center gap-4 text-slate-600'>
+                    <div className=' font-semibold tracking-wide border py-2 px-3 rounded-full'>
+                        <Link href="/">
+                            I want to be a Software engineer 💩
+                        </Link>
+                    </div>
+                    <div className=' align-middle '>
+                        <button>
+                            My Resume
+                        </button>
+                    </div>
+                    <div>
+                        <button>
+                            Todo Lists
+                        </button>
+                    </div>
                 </div>
-                <div>
+
+                <div className='content-center'>
                     <ul className='flex justify-center align-middle gap-3'>
                         <li>
                             <Link href="/login">
