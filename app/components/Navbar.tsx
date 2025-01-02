@@ -19,14 +19,19 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className=' align-middle '>
-                        <button>
+                        <Link href={'/resume'}>
                             My Resume
-                        </button>
+                        </Link>
                     </div>
                     <div>
-                        <button>
-                            Todo Lists
-                        </button>
+                        <Link href='/todo'>
+                            Todo List
+                        </Link>
+                    </div>
+                    <div>
+                    <Link href='/dashboard'>
+                           Dashboard
+                        </Link>
                     </div>
                 </div>
 
