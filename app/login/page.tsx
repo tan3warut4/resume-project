@@ -1,12 +1,30 @@
 "use client"
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import Input from '../components/Input'
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import IconButton from '../components/IconButton';
+import { LoginContext } from '../context';
 
 
 const Page = () => {
   const InputRef = useRef<HTMLInputElement | null>(null)
+  const loginContext = useContext(LoginContext);
+  if (!loginContext) {
+    throw new Error("Failed setting up login context")
+  }
+  const { loginState, setLoginState } = loginContext
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginState({
+      ...loginState,
+      username: e.target.value,
+    })
+  }
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginState({
+      ...loginState,
+      password: e.target.value
+    })
+  }
   useEffect(() => {
     InputRef.current?.focus()
   }, [])
@@ -22,8 +40,8 @@ const Page = () => {
             Sign-in or Sign-up
           </p>
           <div>
-            <Input ref={InputRef} label='Email or username' type='text' />
-            <Input label='Password' type='password' />
+            <Input ref={InputRef} label='Email or username' type='text' value={loginState.username} onChange={handleUsernameChange} />
+            <Input label='Password' type='password' value={loginState.password} onChange={handlePasswordChange} />
           </div>
           <div className='flex flex-col gap-4'>
             <IconButton text='Sign in' color="bg-slate-300" textColor='text-slate-600' hoverColor="hover:bg-slate-400" />
