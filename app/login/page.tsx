@@ -3,7 +3,9 @@ import React, { useEffect, useRef, useContext } from 'react'
 import Input from '../components/Input'
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import IconButton from '../components/IconButton';
-import { LoginContext } from '../context';
+import { LoginContext } from './context';
+import { LoginKind } from './reducer';
+
 
 
 const Page = () => {
@@ -12,25 +14,27 @@ const Page = () => {
   if (!loginContext) {
     throw new Error("Failed setting up login context")
   }
-  const { loginState, setLoginState } = loginContext
+  const { loginState, dispatch } = loginContext
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLoginState({
-      ...loginState,
-      username: e.target.value,
+    dispatch({
+      type: LoginKind.SET_PAYLOAD,
+      payload: { username: e.target.value }
     })
   }
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLoginState({
-      ...loginState,
-      password: e.target.value
+    dispatch({
+      type: LoginKind.SET_PAYLOAD,
+      payload: { password: e.target.value }
     })
   }
   useEffect(() => {
     InputRef.current?.focus()
   }, [])
   const handleSubmit = (e: { preventDefault: () => void; }) => {
+    dispatch({
+      type: LoginKind.SUBMIT_PAYLOAD
+    })
     e.preventDefault()
-    console.log("Submited!!", loginContext.loginState.username, loginContext.loginState.password)
   }
   return (
     <form className='mt-10 flex justify-center' onSubmit={handleSubmit}>
