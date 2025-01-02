@@ -30,7 +30,7 @@ const Page = () => {
   }, [])
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    console.log("Submited!!")
+    console.log("Submited!!", loginContext.loginState.username, loginContext.loginState.password)
   }
   return (
     <form className='mt-10 flex justify-center' onSubmit={handleSubmit}>
