@@ -17,11 +17,11 @@ export interface initialDataProps {
 
 export const initialData = {
   tasks: {
-    "task-1": { id: "task-11", title: 'Task title -1', tag: ["frontend", "leetCode"], content: "task-1 content" },
-    "task-2": { id: "task-2", title: 'Task title -2', tag: ["frontend", "systemDesign"], content: "task-2 content" },
-    "task-3": { id: "task-3", title: 'Task title -3', tag: ["frontend", "backend"], content: "task-3 content" },
-    "task-4": { id: "task-4", title: 'Task title -4', tag: ["frontend", "backend"], content: "task-4 content" },
-    "task-5": { id: "task-5", title: 'Task title -5', tag: ["frontend", "backend"], content: "task-5 content" },
+    "task-1": { id: "task-1", title: 'task-1', tag: ["frontend", "leetCode"], content: "task-1 content" },
+    "task-2": { id: "task-2", title: 'task-2', tag: ["frontend", "systemDesign"], content: "task-2 content" },
+    "task-3": { id: "task-3", title: 'task-3', tag: ["frontend", "backend"], content: "task-3 content" },
+    "task-4": { id: "task-4", title: 'task-4', tag: ["frontend", "backend"], content: "task-4 content" },
+    "task-5": { id: "task-5", title: 'task-5', tag: ["frontend", "backend"], content: "task-5 content" },
   },
   columns: {
     "column-1": {

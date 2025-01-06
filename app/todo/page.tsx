@@ -3,12 +3,18 @@ import React, { JSX } from 'react'
 import Button from './components/Button'
 import { initialData, initialDataProps } from './init-data'
 import Column from './components/Column';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
+
 
 const Page = () => {
+  const onDragEnd = (result: DropResult) => {
+    console.log(result)
+  }
   const renderColumn = (data: initialDataProps): JSX.Element => {
     return (
-      <DragDropContext>
+      <DragDropContext
+        onDragEnd={onDragEnd}
+      >
         {data.columnOrder.map((columnId: string) => {
           const column = data?.columns[columnId];
           const tasks = data?.columns[columnId].taskId;
